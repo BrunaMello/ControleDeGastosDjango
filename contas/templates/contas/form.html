@@ -8,14 +8,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Listagem</h2>
-    <ul>
-    {% for transacao in transacoes %}
-        <li>{{ transacao.descricao }} - {{ transacao.data }} - {{ transacao.valor }} - {{ transacao.categoria}}</li>
-    {% endfor %}
-    </ul>
+    <form method="post">
+        {% csrf_token %}
 
-    <a href="{% url 'url_nova' %}">Novo</a>
-
+        {{ form.as_p }}
+        <button type="submit">Salvar</button>
+    </form>
 </body>
 </html>
